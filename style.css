@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr 5fr;
+}
+
+.header-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: #14213d;
+    color: #fca311;
+    padding: 25px;
+}
+
+.header-section > h1 {
+    font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-bottom: 20px;
+}
+
+.header-section > button {
+    background-color: #000000;
+    color: white;
+    font-weight: bolder;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.header-section > button:hover {
+    background-color: rgba(44, 87, 216, 0.769);
+}
+
+.header-section > button:active {
+    background-color: rgb(44, 87, 216);
+}   
+
+.library-section {
+    padding: 25px;
+    background-color: #f8fafc;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.card {
+    height: 250px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;    
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+
+    transition: 0.5s;
+}
+
+.card > p {
+    font-size: 1.1rem;
+    font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.card:hover {
+    scale: 1.02;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-flex {
+    padding: 10px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-flex > button {
+    padding: 10px 30px;
+    background-color: #000000;
+    color: white;
+    font-weight: bolder;
+    border: none;
+    border-radius: 10px;
+
+    transition: 0.2s;
+}
+
+.btn-flex > button:hover {
+    background-color: rgba(44, 87, 216, 0.769);
+}
+
+.btn-flex > button:active {
+    background-color: rgb(44, 87, 216);
+}   
+
+.read {
+    border-left: 8px solid #065f46c7;
+}
+
+.un-read {
+    border-left: 8px solid #991b1b;
+}
+
+dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 20px;
+    border: none;
+    border-radius: 15px;
+}
+
+dialog::backdrop {
+    backdrop-filter: blur(2px);
+}
+
+dialog button {
+    padding: 10px 40px;
+    background-color: #000000;
+    color: white;
+    font-weight: bolder;
+    border: none;
+    border-radius: 10px;
+}
+
+dialog button:hover {
+    background-color: rgba(44, 87, 216, 0.769);
+}
+
+dialog button:active {
+    background-color: rgb(44, 87, 216);
+}   
+
+.dialog-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+
+    font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.dialog-row > input {
+    padding: 2px;
+}
+
+.err-msg {
+    font-size: 10pt;
+    color: red;
+}
