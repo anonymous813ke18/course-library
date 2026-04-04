@@ -1,4 +1,4 @@
-import { addCard } from "./addCard.js";
+import { checkForCard } from "./addCard.js";
 import { setUpEventListeners } from "./eventListeners.js";
 
 export let myLibrary = [];
@@ -16,10 +16,10 @@ const addBtn = document.querySelector("#add-btn");
 const errMsg = document.querySelector(".err-msg");
 
 
-function Book (UId, authorName, bookTItle, pageCount) {
+function Book (UId, authorName, bookTitle, pageCount) {
     this.UId = UId;
     this.authorName = authorName;
-    this.bookTItle = bookTItle;
+    this.bookTitle = bookTitle;
     this.pageCount = pageCount;
     this.cardCreated = false;
 }
@@ -38,9 +38,10 @@ addBtn.addEventListener("click", () => {
         errMsg.textContent = "Please fill all the information."
     } else {
         errMsg.textContent = '';
+        console.log(`${thisUId}, ${authorName.value}`)
         myLibrary.push(new Book(thisUId, authorName.value, bookName.value, pageCount.value));
         console.log(myLibrary);
-        addCard(thisUId, bookName.value, authorName.value, pageCount.value);
+        checkForCard();
         dialog.close();
     }
 })

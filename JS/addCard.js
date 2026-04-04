@@ -1,4 +1,13 @@
-export function addCard (UId, bookName, authorName, pageCount) {
+import { myLibrary } from "./script.js";
+
+let books;
+export function checkForCard() {
+    books = myLibrary.filter(b => b.cardCreated == false);
+    books.forEach(book => addCard(book));
+}
+
+function addCard (book) {
+    book.cardCreated = true;
     const cardGrid = document.querySelector(".card-grid");
     const card = document.createElement("div");
     const namep = document.createElement("p");
@@ -8,18 +17,18 @@ export function addCard (UId, bookName, authorName, pageCount) {
     const toggleBtn = document.createElement("button");
     const delBtn = document.createElement("button");
 
-    authorp.innerHTML += "<strong>Author:</strong> ";
+    authorp.innerHTML += "<strong>Author:</strong> <span></span>";
     namep.innerHTML += "<strong>Title:</strong> <em></em>";
-    pagep.innerHTML += "<strong>Pages:</strong> ";
+    pagep.innerHTML += "<strong>Pages:</strong> <span></span>";
     toggleBtn.textContent = "Mark As Read";
     delBtn.textContent = "Delete";
 
-    namep.querySelector("em").textContent += bookName;
-    authorp.textContent += authorName;
-    pagep.textContent += pageCount;
-    card.setAttribute("data-UID", `${UId}`);
-    delBtn.setAttribute("data-UID", `${UId}`);
-    toggleBtn.setAttribute("data-UID", `${UId}`);
+    namep.querySelector("em").textContent += book.bookTitle;
+    authorp.querySelector("span").textContent += book.authorName;
+    pagep.querySelector("span").textContent += book.pageCount;
+    card.setAttribute("data-UID", `${book.UId}`);
+    delBtn.setAttribute("data-UID", `${book.UId}`);
+    toggleBtn.setAttribute("data-UID", `${book.UId}`);
 
     card.classList.add("card");
     card.classList.add("un-read");
@@ -33,8 +42,8 @@ export function addCard (UId, bookName, authorName, pageCount) {
     btnContainer.appendChild(toggleBtn);
     btnContainer.appendChild(delBtn);
 
-    card.appendChild(authorp);
     card.appendChild(namep);
+    card.appendChild(authorp);
     card.appendChild(pagep);
     card.appendChild(btnContainer);
 
